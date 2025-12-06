@@ -3,7 +3,18 @@ const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
-app.use(cors());
+
+// --- UPDATED CORS CONFIGURATION ---
+// This allows your Vercel app to talk to this server
+app.use(cors({
+    origin: [
+        "https://recovery-road.vercel.app", // Your Vercel URL
+        "http://localhost:3000"        // Your local testing URL           
+    ],
+    methods: ["GET", "POST"],
+    credentials: true
+}));
+
 // Increase limit to handle multiple high-res image chunks
 app.use(express.json({ limit: '50mb' }));
 
@@ -107,7 +118,6 @@ app.post('/api/analyze', async (req, res) => {
 });
 
 // --- 2. CHAT ENDPOINT (Q&A) ---
-// THIS IS THE PART THAT WAS LIKELY MISSING OR NOT RELOADED
 app.post('/api/chat', async (req, res) => {
   try {
     const { message, images } = req.body;
