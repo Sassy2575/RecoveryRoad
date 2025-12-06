@@ -424,7 +424,8 @@ const DayAccordion = ({ day, isFuture, isCompleted, isActive, onToggleTask }) =>
 const callBackendAnalysis = async (files) => {
   try {
     const images = await Promise.all(files.map(file => readFileAsBase64(file)));
-    const response = await fetch('http://localhost:3001/api/analyze', {
+    const API_BASE = process.env.REACT_APP_BACKEND_URL || 'http://localhost:3001';
+    const response = await fetch(`${API_BASE}/api/analyze`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ images }) 
