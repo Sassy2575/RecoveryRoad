@@ -7,7 +7,12 @@ const app = express();
 // --- UPDATED CORS CONFIGURATION ---
 // This allows your Vercel app to talk to this server
 app.use(cors({
-    origin: "*",
+    origin: [
+        "http://localhost:3000",              // React Localhost
+        "http://localhost:5173",              // Vite Localhost (backup)
+        "https://recovery-road.vercel.app",   // Main Vercel Production
+        "https://recovery-road-alpha.vercel.app" // Your specific Alpha branch
+    ],
     methods: ["GET", "POST"],
     credentials: true
 }));
