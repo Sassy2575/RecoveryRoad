@@ -55,7 +55,7 @@ To run this project locally, you need to start both the Backend (Proxy) and the 
 * A Google Gemini API Key
 
 ### 1. Clone the Repository
-git clone [https://github.com/Sassy2575/recovery-road.git](https://github.com/yourusername/recovery-road.git)
+git clone https://github.com/Sassy2575/RecoveryRoad
 
 cd recovery-road
 
